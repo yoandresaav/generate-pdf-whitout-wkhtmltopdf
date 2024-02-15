@@ -1,0 +1,80 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @page {
+        size: letter;
+        /* margin: 2cm; with this content dont flow to another page */
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+            /* -pdf-frame-border: 1; */
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+            /* -pdf-frame-border: 1; */
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+            /* -pdf-frame-border: 1; */
+        }
+      }
+      html {
+        font-family: Arial, sans-serif;
+      }
+      .title-p {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .paragraph {
+        font-size: 12px;
+        color: #4B465C;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="header_content" style="text-align: right;">
+      <img src="talentto_logo.png" alt="Talentto" style="width: 90px; height: 20px; padding: 10px;">
+    </div>
+
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">
+      <div style="text-align: center; font-size: 9pt; color: #A8AAAE;">
+        talentto.ai - page <pdf:pagenumber>
+          of <pdf:pagecount>
+      </div>
+    </div>
+
+
+  <table>
+    <tr style="">
+      <td style="width: 1.3cm;padding: 20px;">
+          <img src="icono_document.png" alt="Document" style="width:20px;height:20px;">
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td style="font-size: 14px; color: #4B465C;">Are employees feeling positive about recent changes?</td>
+          </tr>
+          <tr>
+            <td style="font-size: 10px; color: #A8AAAE;">Report: 1 to 31 Jan 2024</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+    <div class="title-p">Analysis</div>
+     <p class="paragraph">
+     </p>
+
+     {{analysis}}
+
+  </body>
+</html>
